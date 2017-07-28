@@ -24,10 +24,10 @@ EAV table
 | 10 | 3     | album_name       | Dark Side of the Moon       |
 | 11 | 3     | recorded_date    | March 1, 1973               |
 | 12 | 3     | release_date     | March 1, 1973               |
-| 8  | 3     | number_of_tracks | 8                           |
-| 9  | 3     | label            | Harvest Records             | 
-| 10 | 3     | producer         | Dark Side of the Moon       |
-| 11 | 3     | genre            | Rock                        |
+| 13 | 3     | number_of_tracks | 8                           |
+| 14 | 3     | label            | Harvest Records             | 
+| 15 | 3     | producer         | Dark Side of the Moon       |
+| 16 | 3     | genre            | Rock                        |
 ---------------------------------------------------------------
 ```
 
