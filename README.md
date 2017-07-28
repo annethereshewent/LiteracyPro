@@ -1,7 +1,7 @@
 # LiteracyPro
 ## Test for LiteracyPro - Uses PHP with Laravel
 
-This project was created using php 7.1.4 and Laravel 5. I used the built in laravel server ('php artisan server') to run most of my code. For best results, use the latest version of Chrome though it should work fine on most browsers.
+This project was created using php 7.1.4 and Laravel 5. I used the built in laravel server ('php artisan serve') to run most of my code. For best results, use the latest version of Chrome though it should work fine on most browsers.
 
 For Task #2:
 
