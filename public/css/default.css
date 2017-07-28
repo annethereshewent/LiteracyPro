@@ -1,0 +1,138 @@
+body {
+	background: #cc99ff;
+	font: 'Calibri'; //default font
+}
+.menu {
+	list-style-type: none;
+	text-align:center;
+}
+.menu li {
+	display: inline;
+	background: #cc0052;
+	border-radius: 8px;
+	padding:5px;
+	margin-right:-4px;
+	border: 1px solid white;
+}
+.menu li a {
+	color: white;
+	text-decoration: none;
+
+}
+li a {
+	text-decoration: none;
+	color: #99004d;
+}
+h1 {
+	
+	text-align:center;
+}
+h1, h3 {
+	color: #cc0066;
+}
+.band_table, .album_table {
+	margin-top:40px;
+	font-size: 12px;
+}
+.band_table {
+	margin-left: 200px;
+}
+
+.album_table {
+	margin-left:60px;
+}
+.button {
+	width: 20px !important;
+}
+.band_table th,td
+.album_table th,td
+ {
+	width: 150px;
+}
+
+th, td {
+	border: 1px solid white;
+	text-align:center;
+	padding: 10px;
+}
+td {
+	color: #4d0066;
+}
+td a {
+	text-decoration: none;
+	color: #99004d
+}
+th {
+	background: gold;
+}
+.button-img {
+	width:20px;
+	height:20px;
+}
+.even {
+	background: #ff33cc;
+}
+.odd {
+	background: #ff80df;
+}
+.band-filter {
+	text-align:center;
+	margin-top:40px;
+}
+.band-filter-label {
+	font: 'Cambria';
+	font-size: 12px;
+}
+.detail-label {
+	font-weight: bold;
+	font-size:14px;
+	display: inline-block;
+}
+.attribute {
+	font-size: 13px;
+	display: inline-block;
+}
+label {
+	width:150px;
+}
+.band-details, .band-albums {
+	margin-left: 200px;
+}
+.row {
+	margin-bottom:20px;
+}
+.attribute_input {
+	border-radius: 2px;
+	border-style: none;
+	width: 200px;
+}
+.band-album-list li {
+	list-style-type: none;
+}
+#add-band-button  {
+	margin-left:220px;
+}
+#add-album-button {
+	margin-left:80px;
+}
+#add-band-button, #add-album-button {
+	margin-top:20px;
+	background: gold;
+}
+#edit_button {
+	background: #3399ff;
+}
+button {
+	border-radius: 10px;
+	height: 30px;
+}
+#cancel_button {
+	background: #ff0066;
+}
+#save_button {
+	background: #40bf80;
+}
+.add-link {
+	font-size:12px;
+	text-decoration: none;
+}

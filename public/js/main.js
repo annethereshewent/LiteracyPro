@@ -1,0 +1,84 @@
+
+//deletes both bands and albums
+function delete_element(id, type) {
+	if (confirm("Are you sure you want to delete this " + type + '?')) {
+		$.post('/delete/' + type + '/' + id, { "_token": $('meta[name="csrf-token"]').attr('content') }, function(data) {
+			if (data == 'success') {
+				$('#' + type + '_row_' + id).fadeOut(500, function() {
+					$(this).hide()
+				});	
+			}
+		});
+	}
+}
+
+function filter_bands(band_id) {	
+	$.get(
+		'filter_albums/' + band_id, 
+		{ "_token": $('meta[name="csrf-token"]').attr('content') }, 
+		function(data) {
+			$('#albums_table_body').html("");
+			//console.debug(data)
+			$('#albums_table_body').html(data);
+		}
+	);
+}
+
+function add_attribute_inputs() {
+	band_editable = (typeof band_editable !== 'undefined') ?  band_editable : false;
+	$('.attribute').each(function() {
+		if ($(this).attr('id') == 'band_name') {
+			//ajax to get bands for dropdown list
+			$.get(
+				'/get_bands',
+				function(data) {
+					$('#band_name').html(data)
+				}
+			)
+			
+		}
+		else if ($(this).attr('id') == 'still_active') {
+			var still_active_value = $(this).text() == 'Yes' ? 1 : 0;
+			console.log('still active value: ' + still_active_value);
+			$(this).html("<select class='still-active-dropdown' name='still_active'><option value='0'>No</option><option value='1'>Yes</option></select>");
+			
+
+			$('.still-active-dropdown').val(still_active_value)
+		}
+		else {
+			$(this).html('<input type="text" class="attribute_input" name="' + $(this).attr('id') + '" value="' + $(this).text() + '">')
+		}
+	});
+}
+
+
+function hide_attribute_inputs() {
+	$('.attribute').each(function() { 
+		var value;
+		if ($(this).attr('id') == 'band_name') {
+			$(this).html($('#band_name option:selected').text());
+		}
+		else if ($(this).attr('id') == 'still_active') {
+			$(this).html($(this).children(':first').val() == 0 ? 'No' : 'Yes');
+
+		}
+		else {
+			 $(this).html($(this).children(':first').val());
+		}
+	});
+}
+
+//changes the "edit" button to a "save" button and adds the text inputs
+function show_submit_button() {
+	$("#edit_button").hide();
+	$("#save_button").show();
+	$("#cancel_button").show();
+	add_attribute_inputs();
+}
+
+function show_edit_button() {
+	$("#edit_button").show();
+	$("#save_button").hide();
+	$("#cancel_button").hide();
+	hide_attribute_inputs();
+}
