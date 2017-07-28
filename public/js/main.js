@@ -12,27 +12,43 @@ function delete_element(id, type) {
 	}
 }
 
-function filter_bands(band_id) {	
-	$.get(
-		'filter_albums/' + band_id, 
-		{ "_token": $('meta[name="csrf-token"]').attr('content') }, 
-		function(data) {
-			$('#albums_table_body').html("");
-			//console.debug(data)
-			$('#albums_table_body').html(data);
-		}
-	);
+function filter_bands(band_id) {
+	//if band id not blank then get the specific artist's albums
+	if (band_id != '') {
+		$.get(
+			'filter_albums/' + band_id, 
+			{ "_token": $('meta[name="csrf-token"]').attr('content') }, 
+			function(data) {
+				$('#albums_table_body').html("");
+				//console.debug(data)
+				$('#albums_table_body').html(data);
+			}
+		);
+	}
+	else {
+		//otherwise, get all the albums
+		$.get(
+			'get_albums',
+			function(data) {
+				$('#albums_table_body').html(data);	
+			}
+		);
+	}
 }
 
-function add_attribute_inputs() {
-	band_editable = (typeof band_editable !== 'undefined') ?  band_editable : false;
+function add_attribute_inputs(callback) {
 	$('.attribute').each(function() {
 		if ($(this).attr('id') == 'band_name') {
 			//ajax to get bands for dropdown list
+			console.log('band name text is ' + $('#band_name').text())
 			$.get(
 				'/get_bands',
+				{ selected: $('#band_name').text() },
 				function(data) {
-					$('#band_name').html(data)
+					$('#band_name').html(data);
+					if (callback) {
+						callback();
+					}
 				}
 			)
 			
@@ -56,7 +72,7 @@ function hide_attribute_inputs() {
 	$('.attribute').each(function() { 
 		var value;
 		if ($(this).attr('id') == 'band_name') {
-			$(this).html($('#band_name option:selected').text());
+			$(this).html($('#band_name_dropdown option:selected').text());
 		}
 		else if ($(this).attr('id') == 'still_active') {
 			$(this).html($(this).children(':first').val() == 0 ? 'No' : 'Yes');

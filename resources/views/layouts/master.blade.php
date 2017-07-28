@@ -8,6 +8,15 @@
 			<li><a href="/">Bands</a></li>
 			<li><a href="/album">Albums</a></li>
 		</ul>
+		@if ($errors->any())
+	    <div class="errors">
+	        <ul>
+	            @foreach ($errors->all() as $error)
+	                <li class="error">{{ $error }}</li>
+	            @endforeach
+	        </ul>
+	    </div>
+@endif
 		@yield('main')
 
 		<script src="{{asset('js/jquery-3.2.1.min.js')}}" type="text/javascript"></script>

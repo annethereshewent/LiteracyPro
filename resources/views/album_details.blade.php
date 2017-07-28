@@ -8,7 +8,7 @@
 		<input type="hidden" name="album_id" value="{{$album->id ?? '0'}}">
 		<div class="band-details">
 			<div class="row">
-				<label class="detail-label">Band Name: </label><span class="attribute" id="band_name">{{ $album->band->name}}</span>
+				<label class="detail-label">Band Name: </label><span class="attribute" id="band_name">{{ $album->band->name ?? ''}}</span>
 			</div>
 			<div class="row">
 				<label class="detail-label">Album Name: </label><span class="attribute" id="name">{{$album->name ?? ''}}</span>
@@ -51,10 +51,15 @@
 		$(function() {
 			//this will add text boxes 
 			if ('{{$action}}' != 'view') {
-				add_attribute_inputs()
-				if ('{{$action}}' == 'create') {
-					$("#band_form").attr('action', '/create_band')
-				}
+				add_attribute_inputs(function() {
+					if ('{{$default}}' != '') {
+						$('#band_name_dropdown').val({{$default}});
+					}
+					if ('{{$action}}' == 'create') {
+						$("#album_form").attr('action', '/create_album')
+					}
+				});
+				
 			}
 		})
 

@@ -25,3 +25,4 @@ Route::post('update_album', 'Controller@update_album');
 Route::post('create_album', 'Controller@create_album');
 Route::get('get_bands', 'Controller@get_bands');
 Route::get('get_band_name/{id}', 'Controller@get_band_name');
+Route::get('get_albums', 'Controller@get_albums');

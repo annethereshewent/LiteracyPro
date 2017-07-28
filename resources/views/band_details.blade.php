@@ -41,7 +41,7 @@
 					<li><a href='/album_details/view/{{$album->id}}'>{{$album->name}}</a></li>
 				@endforeach
 			</ul>
-			<p><a class="add-link" href="/album_details/create">Add New Album</a></p>
+			<p><a class="add-link" href="/album_details/create?default={{$band->id}}">Add New Album</a></p>
 		</div>
 	@endif
 @endsection
