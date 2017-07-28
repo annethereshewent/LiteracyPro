@@ -7,6 +7,7 @@ For Task #2:
 
 The tables as an EAV model would look like such:
 
+```
 EAV table
 ===============================================================
 | id | fk_id | attribute        | value                       |
@@ -28,7 +29,7 @@ EAV table
 | 10 | 3     | producer         | Dark Side of the Moon       |
 | 11 | 3     | genre            | Rock                        |
 ---------------------------------------------------------------
-
+```
 
 
 
