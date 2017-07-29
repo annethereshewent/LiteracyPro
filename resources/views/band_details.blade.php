@@ -57,11 +57,11 @@
 		$(function() {
 			//this will add text boxes 
 			if ('{{$action}}' != 'view') {
-				add_attribute_inputs(function() {
-					if ('{{$action}}' == 'create') {
-						$("#band_form").attr('action', '/create_band')
-					}
-				});
+				if ('{{$action}}' == 'create') {
+
+					$("#band_form").attr('action', '/create_band')
+				}
+				add_attribute_inputs();
 			}
 		})
 
