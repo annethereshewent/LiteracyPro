@@ -119,7 +119,7 @@ class Controller extends BaseController
     public function save_band($band, $request) {
     	$this->validate($request, [
 			'name'       => 'required',
-			'start_date' => 'date'
+			'start_date' => 'nullable|date'
 		]);
 
     	$band->name = $request->input('name');
@@ -153,8 +153,8 @@ class Controller extends BaseController
     	$this->validate($request, [
     		'band_name' 	=> 'required',
     		'name'			=> 'required',
-    		'recorded_date' => 'date',
-    		'release_date'	=> 'date'
+    		'recorded_date' => 'nullable|date',
+    		'release_date'	=> 'nullable|date'
 		]);
 
     	$album->name = $request->input('name');
