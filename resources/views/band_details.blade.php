@@ -32,7 +32,7 @@
 			</div>
 		</div>
 	</form>
-	<!--fix this tomorrow -->
+
 	@if (isset($band))
 		<div class="band-albums">
 			<h3>Albums By {{$band->name}}:</h3>
@@ -51,10 +51,11 @@
 		$(function() {
 			//this will add text boxes 
 			if ('{{$action}}' != 'view') {
-				add_attribute_inputs();
-				if ('{{$action}}' == 'create') {
-					$("#band_form").attr('action', '/create_band')
-				}
+				add_attribute_inputs(function() {
+					if ('{{$action}}' == 'create') {
+						$("#band_form").attr('action', '/create_band')
+					}
+				});
 			}
 		})
 
