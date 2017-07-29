@@ -1,11 +1,11 @@
 # LiteracyPro
 ## Test for LiteracyPro - Uses PHP with Laravel
 
-This project was created using php 7.1.4 and Laravel 5. I used the built in laravel server ('php artisan serve') to run most of my code. For best results, use the latest version of Chrome though it should work fine on most browsers.
+This project was created using php 7.1.4 and Laravel 5. You will probably have to do a 'composer install' to install all the dependencies, and I used the built in Laravel server ('php artisan serve') to run most of my code. For best results, use the latest version of Chrome though it should work fine on most browsers.
 
 For Task #2:
 
-The tables as an EAV model would look like such:
+The tables as an EAV model would look as such:
 
 ```
 EAV table
@@ -26,7 +26,7 @@ EAV table
 | 12 | 3     | release_date     | March 1, 1973               |
 | 13 | 3     | number_of_tracks | 8                           |
 | 14 | 3     | label            | Harvest Records             | 
-| 15 | 3     | producer         | Dark Side of the Moon       |
+| 15 | 3     | producer         | Alan Parsons                |
 | 16 | 3     | genre            | Rock                        |
 ---------------------------------------------------------------
 ```
