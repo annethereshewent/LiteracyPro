@@ -6,7 +6,7 @@
 	<div class="band-filter">
 		<label class="band-filter-label">Filter by Band:</label>
 		<select class="band-filter-dropdown">
-			<option value=""></option>
+			<option value="">All</option>
 			@foreach($bands as $band)
 				<option value="{{$band->id}}">{{$band->name}}</option>
 			@endforeach
