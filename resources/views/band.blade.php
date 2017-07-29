@@ -16,7 +16,7 @@
 		@foreach($bands as $band)
 			<tr class="{{$class}}" id="band_row_{{$band->id}}">
 				<td class="button"><a href="#" onclick="delete_element({{$band->id}}, 'band');return false;"><img src="{{asset('images/delete.png')}}" class="button-img"></a></td>
-				<td class="button"><a href="/band_details/update/{{$band->id}}"><img src="{{asset('images/edit.png')}}" class="button-img"></a></td>	
+				<td class="button"><a href="/band_details/update/{{$band->id}}?previous=band"><img src="{{asset('images/edit.png')}}" class="button-img"></a></td>	
 				<td><a href="/band_details/view/{{$band->id}}/">{{ $band->name }}</a></td>
 				<td>{{ date('F jS Y', strtotime($band->start_date)) }}</td>
 				<td><a href="{{ $band->website }}">Click</a></td>

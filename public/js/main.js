@@ -40,7 +40,7 @@ function add_attribute_inputs(callback) {
 	$('.attribute').each(function() {
 		if ($(this).attr('id') == 'band_name') {
 			//ajax to get bands for dropdown list
-			console.log('band name text is ' + $('#band_name').text())
+			//console.log('band name text is ' + $('#band_name').text())
 			$.get(
 				'/get_bands',
 				{ selected: $('#band_name').text() },
@@ -84,17 +84,33 @@ function hide_attribute_inputs() {
 	});
 }
 
-//changes the "edit" button to a "save" button and adds the text inputs
 function show_submit_button() {
 	$("#edit_button").hide();
+	$("#back_button").hide()
 	$("#save_button").show();
 	$("#cancel_button").show();
 	add_attribute_inputs();
 }
 
-function show_edit_button() {
+function show_edit_button(current_url) {
+	//first check the url and make sure the action isn't 'create'
+	if (current_url) {
+		var url_split = current_url.split('/');
+
+		//not really a url, came from bands or albums page with query string set to previous page
+		if (url_split.length == 1) {
+			location.href = '/' + current_url;
+		}
+		else if (url_split[url_split.length-1] == 'create') {
+			location.href = url_split[url_split.length-2] == 'album_details' ? '/album' : '/';
+		}
+	}
+
 	$("#edit_button").show();
+	$("#back_button").show();
 	$("#save_button").hide();
 	$("#cancel_button").hide();
 	hide_attribute_inputs();
 }
+
+

@@ -126,7 +126,7 @@ button {
 	border-radius: 10px;
 	height: 30px;
 }
-#cancel_button {
+#cancel_button, #back_button {
 	background: #ff0066;
 }
 #save_button {

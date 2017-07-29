@@ -20,14 +20,20 @@
 				<label class="detail-label">Still Active: </label><span class="attribute" id="still_active">{{isset($band->still_active) ? ($band->still_active == 0 ? 'No' : 'Yes') : 'No'}}</span>
 			</div>
 			<div class="row">
-				@if($action == 'view')
+				@if ($action == 'view')
 					<button type="button" onclick="show_submit_button()" id="edit_button">Edit</button>
+					<button type="button" onclick="location.href='/'" id="back_button">Back</button>
 					<button type="submit" id="save_button" style="display:none">Save</button>
 					<button type="button" onclick="show_edit_button()" style="display:none" id="cancel_button">Cancel</button>
 				@else
 					<button type="button" onclick="show_submit_button()" id="edit_button" style="display:none">Edit</button>
 					<button type="submit" id="save_button">Save</button>
-					<button type="button" onclick="show_edit_button()" id="cancel_button">Cancel</button>
+					@if ($previous == '')
+						<button type="button" onclick="show_edit_button(location.href)" id="cancel_button">Cancel</button>
+					@else
+						<button type="button" onclick="show_edit_button('{{$previous}}')" id="cancel_button">Cancel</button>
+
+					@endif
 				@endif
 			</div>
 		</div>

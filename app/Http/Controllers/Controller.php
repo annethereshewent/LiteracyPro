@@ -83,13 +83,18 @@ class Controller extends BaseController
     public function album_details($action, $id=null, Request $request) {
     	$album = album::find($id);
 
-    	return view('album_details', ['album' => $album, 'action' => $action, 'default' => $request->input('default') ?? '']);
+    	return view('album_details', [
+    		'album'    => $album, 
+    		'action'   => $action, 
+    		'default'  => $request->input('default') ?? '', 
+    		'previous' => $request->input('previous') ?? ''
+		]);
     }
 
-    public function band_details($action, $id=null) {
+    public function band_details($action, $id=null, Request $request) {
     	$band = band::find($id);
 
-    	return view('band_details', ['band' => $band, 'action' => $action]);
+    	return view('band_details', ['band' => $band, 'action' => $action, 'previous' => $request->input('previous') ?? '']);
     }
 
     public function update_band(Request $request) {

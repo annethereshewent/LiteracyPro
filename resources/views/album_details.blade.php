@@ -34,12 +34,17 @@
 			<div class="row">
 				@if($action == 'view')
 					<button type="button" onclick="show_submit_button()" id="edit_button">Edit</button>
+					<button type="button" onclick="location.href='/album'" id="back_button">Back</button>
 					<button type="submit" id="save_button" style="display:none">Save</button>
 					<button type="button" onclick="show_edit_button()" style="display:none" id="cancel_button">Cancel</button>
 				@else
 					<button type="button" onclick="show_submit_button()" id="edit_button" style="display:none">Edit</button>
 					<button type="submit" id="save_button">Save</button>
-					<button type="button" onclick="show_edit_button()" id="cancel_button">Cancel</button>
+					@if ($previous == '')
+						<button type="button" onclick="show_edit_button(location.href)" id="cancel_button">Cancel</button>
+					@else 
+						<button type="button" onclick="show_edit_button('{{$previous}}')" id="cancel_button">Cancel</button>
+					@endif
 				@endif
 			</div>
 		</div>
